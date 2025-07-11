@@ -426,3 +426,37 @@ main.sign-up-mode .carousel {
     height: 50px;
   }
 }
+
+@media (max-width: 420px) {
+  .heading h2 {
+    font-size: 1.5rem; /* dari 2.1rem */
+    line-height: 2rem;
+  }
+
+  .input-wrap {
+    margin-bottom: 1.2rem;
+  }
+
+  .sign-btn {
+    height: 48px;
+    font-size: 0.9rem;
+  }
+
+  .text {
+    font-size: 0.75rem;
+  }
+
+  .text-group h2 {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  .bullets span {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+
+  .bullets span.active {
+    width: 1rem;
+  }
+}
