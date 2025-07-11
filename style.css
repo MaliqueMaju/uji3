@@ -26,10 +26,9 @@ main {
 
 .box {
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 1020px;
-  min-height: 640px;
-  height: auto;
+  height: 640px;
   background-color: #fff;
   border-radius: 3.3rem;
   box-shadow: 0 60px 40px -30px rgba(0, 0, 0, 0.27);
@@ -42,8 +41,6 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 1rem;
-  box-sizing: border-box;
 }
 
 .forms-wrap {
@@ -68,7 +65,7 @@ form {
   justify-content: space-evenly;
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  transition: opacity 0.02s 0.4s, transform 0.8s ease-in-out;
+  transition: opacity 0.02s 0.4s;
 }
 
 form.sign-up-form {
@@ -112,7 +109,6 @@ form.sign-up-form {
   font-size: 0.75rem;
   font-weight: 500;
   transition: 0.3s;
-  cursor: pointer;
 }
 
 .toggle:hover {
@@ -121,7 +117,7 @@ form.sign-up-form {
 
 .input-wrap {
   position: relative;
-  height: 40px;
+  height: 37px;
   margin-bottom: 2rem;
 }
 
@@ -162,19 +158,19 @@ label {
 .sign-btn {
   display: inline-block;
   width: 100%;
-  height: 45px;
-  background-color: #1E293B;
+  height: 43px;
+  background-color: #1E293B ;
   color: #fff;
   border: none;
   cursor: pointer;
   border-radius: 0.8rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-bottom: 2rem;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 
 .sign-btn:hover {
-  background-color: #C62828;
+  background-color: #C62828 ;
 }
 
 .text {
@@ -194,13 +190,11 @@ label {
 main.sign-up-mode form.sign-in-form {
   opacity: 0;
   pointer-events: none;
-  transform: translateX(-100%);
 }
 
 main.sign-up-mode form.sign-up-form {
   opacity: 1;
   pointer-events: all;
-  transform: translateX(0%);
 }
 
 main.sign-up-mode .forms-wrap {
@@ -217,7 +211,7 @@ main.sign-up-mode .carousel {
   width: 55%;
   left: 45%;
   top: 0;
-  background-color: #1E293B;
+  background-color: #1E293B ;
   border-radius: 2rem;
   display: grid;
   grid-template-rows: auto 1fr;
@@ -234,8 +228,8 @@ main.sign-up-mode .carousel {
 
 .image {
   width: 100%;
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  grid-column: 1/2;
+  grid-row: 1/2;
   opacity: 0;
   transition: opacity 0.3s, transform 0.5s;
 }
@@ -280,15 +274,16 @@ main.sign-up-mode .carousel {
 }
 
 .text-group h2 {
-  font-size: 1.1rem;
-  line-height: 2.5rem;
-  white-space: normal;
-  word-break: break-word;
-  text-align: center;
-  font-weight: 600;
-  padding: 0 1rem;
-  color: #FACC15;
+  font-size: 1.1rem;         
+  line-height: 2.5rem;       
+  white-space: normal;      
+  word-break: break-word;    
+  text-align: center;        
+  font-weight: 600;          
+  padding: 0 1rem;           
+  color: #FACC15;            
 }
+
 
 .bullets {
   display: flex;
@@ -313,8 +308,6 @@ main.sign-up-mode .carousel {
   border-radius: 1rem;
 }
 
-/* MEDIA QUERIES */
-
 @media (max-width: 850px) {
   .box {
     height: auto;
@@ -325,21 +318,21 @@ main.sign-up-mode .carousel {
   .inner-box {
     position: static;
     transform: none;
-    width: 100%;
-    height: auto;
+    width: revert;
+    height: revert;
     padding: 2rem;
   }
 
   .forms-wrap {
-    position: static;
+    position: revert;
     width: 100%;
     height: auto;
-    left: 0;
   }
 
   form {
-    max-width: 100%;
+    max-width: revert;
     padding: 1.5rem 2.5rem 2rem;
+    transition: transform 0.8s ease-in-out, opacity 0.45s linear;
   }
 
   .heading {
@@ -348,29 +341,22 @@ main.sign-up-mode .carousel {
 
   form.sign-up-form {
     transform: translateX(100%);
-    opacity: 1;
-    pointer-events: all;
   }
 
   main.sign-up-mode form.sign-in-form {
     transform: translateX(-100%);
-    opacity: 0;
-    pointer-events: none;
   }
 
   main.sign-up-mode form.sign-up-form {
     transform: translateX(0%);
-    opacity: 1;
-    pointer-events: all;
   }
 
   .carousel {
-    position: static;
+    position: revert;
     height: auto;
     width: 100%;
     padding: 3rem 2rem;
     display: flex;
-    border-radius: 2rem;
   }
 
   .images-wrapper {
@@ -410,19 +396,5 @@ main.sign-up-mode .carousel {
 
   form {
     padding: 1rem 2rem 1.5rem;
-  }
-
-  .input-wrap {
-    height: 45px;
-    margin-bottom: 1.5rem;
-  }
-
-  .input-field {
-    font-size: 1rem;
-  }
-
-  .sign-btn {
-    font-size: 1rem;
-    height: 50px;
   }
 }
