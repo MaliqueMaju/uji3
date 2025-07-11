@@ -1,20 +1,37 @@
-const inputs = document.querySelectorAll(".input-field");
-const bullets = document.querySelectorAll(".bullets span");
-const textSlider = document.querySelector(".text-group");
 
-inputs.forEach((input) => {
-  input.addEventListener("focus", () => input.classList.add("active"));
-  input.addEventListener("blur", () => {
-    if (input.value === "") input.classList.remove("active");
+const inputs = document.querySelectorAll(".input-field");
+const toggle_btn = document.querySelectorAll(".toggle");
+const main = document.querySelector("main");
+const bullets = document.querySelectorAll(".bullets span");
+const images = document.querySelectorAll(".image");
+
+inputs.forEach((inp) => {
+  inp.addEventListener("focus", () => {
+    inp.classList.add("active");
+  });
+  inp.addEventListener("blur", () => {
+    if (inp.value != "") return;
+    inp.classList.remove("active");
+  });
+});
+
+toggle_btn.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    main.classList.toggle("sign-up-mode");
   });
 });
 
 function moveSlider() {
-  const index = parseInt(this.dataset.value);
-  const offset = (index - 1) * 2.5; // sesuai height text-group line-height
-  textSlider.style.transform = `translateY(-${offset}rem)`;
+  let index = this.dataset.value;
 
-  bullets.forEach((b) => b.classList.remove("active"));
+  let currentImage = document.querySelector(`.img-${index}`);
+  images.forEach((img) => img.classList.remove("show"));
+  currentImage.classList.add("show");
+
+  const textSlider = document.querySelector(".text-group");
+  textSlider.style.transform = `translateY(${-(index - 1) * 2.2}rem)`;
+
+  bullets.forEach((bull) => bull.classList.remove("active"));
   this.classList.add("active");
 }
 
